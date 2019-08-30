@@ -8,3 +8,10 @@ class User:
         self.first_name = first_name
         self.second_name = second_name
         self.password = password
+
+    # saving the user 
+    def save_user(self):
+        '''
+        save method that adds stores our user
+        '''
+        User.user_details.append(self)
