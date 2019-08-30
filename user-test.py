@@ -37,7 +37,12 @@ class TestUser(unittest.TestCase):
         '''
         test to check whether a user can delete account
         '''
-        User.user_details.remove(self)
+        self.new_user.save_user()
+        test_user = User("Keren","Mungai","kayren12345")
+        test_user.save_user
+
+        self.new_user.delete_account()
+        self.assertEqual(len(User.user_details),1)
 
 if __name__ == '__main__':
     unittest.main()
