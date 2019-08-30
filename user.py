@@ -15,3 +15,9 @@ class User:
         save method that adds stores our user
         '''
         User.user_details.append(self)
+    # deleting the user account
+    def delete_account(self):
+        '''
+        delete account method to remove user account
+        '''
+        User.user_details.remove(self)
