@@ -30,21 +30,13 @@ def find_user(first_name):
     '''
     return User.find_by_fname(first_name)
 
+# checking if a user exists
+def user_existance(first_name):
+    '''
+    Function that checks if a user exist and returns a boolean
+    '''
+    return User.user_exist(first_name)
 
-# # finding a contact
-# def find_contact(number):
-#     '''
-#     Function that finds a contact by number and returns the 
-#     contact
-#     '''
-#     return Contact.find_by_number(number)
-# # check if a contact exists
-# def checking_if_contact_exists(number):
-#     '''
-#     function to check if a contact exists with the number and 
-#     return a boolean
-#     '''
-#     return Contact.contact_exist(number)
 # # displaying all contacts
 # def display_contacts():
 #     '''
