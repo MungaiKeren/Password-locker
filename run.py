@@ -23,6 +23,13 @@ def del_account(user):
     '''
     user.delete_account()
 
+# finding a user by first name
+def find_user(first_name):
+    '''
+    Function that finds user by their first name and returns their first name
+    '''
+    return User.find_by_fname(first_name)
+
 
 # # finding a contact
 # def find_contact(number):
