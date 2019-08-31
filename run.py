@@ -37,10 +37,9 @@ def user_existance(first_name):
     '''
     return User.user_exist(first_name)
 
-
-# # displaying all contacts
-# def display_contacts():
-#     '''
-#     function that returns all saved contacts
-#     '''
-#     return Contact.display_contacts()
+# displaying users
+def display_users():
+    '''
+    Function that does actual display of users
+    '''
+    return User.display_user()
