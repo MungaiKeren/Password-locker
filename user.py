@@ -9,18 +9,23 @@ class User:
         self.second_name = second_name
         self.password = password
 
+
     # saving the user 
     def save_user(self):
         '''
         save method that adds stores our user
         '''
         User.user_details.append(self)
+
+
     # deleting the user account
     def delete_account(self):
         '''
         delete account method to remove user account
         '''
         User.user_details.remove(self)
+
+
     # confirm user exist
     @classmethod
     def user_exist(cls,first_name):
