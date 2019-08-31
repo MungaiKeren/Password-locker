@@ -37,6 +37,7 @@ def user_existance(first_name):
     '''
     return User.user_exist(first_name)
 
+
 # # displaying all contacts
 # def display_contacts():
 #     '''

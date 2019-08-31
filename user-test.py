@@ -77,5 +77,11 @@ class TestUser(unittest.TestCase):
         found_user = User.find_by_fname("Keren")
 
         self.assertEqual(found_user.first_name,test_user.first_name)
+    # test that displays users
+    def display_user(self):
+        '''
+        Test that displays users
+        '''
+        self.assertEqual(User.display_contacts(),User.user_details)
 if __name__ == '__main__':
     unittest.main()
