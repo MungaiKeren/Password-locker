@@ -42,33 +42,20 @@ class TestUser(unittest.TestCase):
         test_user.save_user
 
         self.new_user.delete_account()
-        self.assertEqual(len(User.user_details),1)
+        self.assertEqual(len(User.user_details),0)
     # checking if user exists
     def test_user_exists(self):
         '''
         checks if user exists by password. returns a boolean if user doesn't exist
         '''
         self.new_user.save_user()
-        test_user = User("Testname","Testsecondname","kayren12345")
+        test_user = User("Keren","Testsecondname","kayren12345")
         test_user.save_user()
 
-        user_exists = User.user_exist("kayren12345")
+        user_exists = User.user_exist("Keren")
 
         self.assertTrue(user_exists)
 
 
 if __name__ == '__main__':
     unittest.main()
-
-#    def test_contact_exists(self):
-        # '''
-        # test to check if we can return a Boolean  if we cannot find the contact.
-        # '''
-
-        # self.new_contact.save_contact()
-        # test_contact = Contact("Test","user","0711223344","test@user.com") # new contact
-        # test_contact.save_contact()
-
-        # contact_exists = Contact.contact_exist("0711223344")
-
-        # self.assertTrue(contact_exists)
