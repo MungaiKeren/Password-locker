@@ -25,6 +25,19 @@ class User:
         '''
         User.user_details.remove(self)
 
+    # finding user by firstname
+    @classmethod
+    def find_by_fname(cls,first_name):
+        '''
+        finding user by their first name
+        Args:
+            user: user to search for 
+        returns:
+            user searched for
+        '''
+        for user in cls.user_details:
+            if user.first_name == first_name:
+                return user
 
     # confirm user exist
     @classmethod
