@@ -16,24 +16,14 @@ def save_user(user):
     '''
     user.save_user()
 
+# delete user
+def del_account(user):
+    '''
+    Function that deletes a user acoount
+    '''
+    user.delete_account()
 
 
-
-
-
-
-# # saving contacts
-# def save_contacts(contact):
-#     '''
-#     Function to save contact
-#     '''
-#     contact.save_contact()
-# # delete contact
-# def del_contact(contact):
-#     '''
-#     function to delete contact
-#     '''
-#     contact.delete_contact()
 # # finding a contact
 # def find_contact(number):
 #     '''
