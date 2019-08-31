@@ -10,6 +10,12 @@ def create_user(fname,sname,password):
     return new_user
 
 # saving user
+def save_user(user):
+    '''
+    Function to save our user details
+    '''
+    user.save_user()
+
 
 
 
