@@ -82,6 +82,6 @@ class TestUser(unittest.TestCase):
         '''
         Test that displays users
         '''
-        self.assertEqual(User.display_contacts(),User.user_details)
+        self.assertEqual(User.display_user(),User.user_details)
 if __name__ == '__main__':
     unittest.main()

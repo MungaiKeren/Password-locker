@@ -52,3 +52,10 @@ class User:
             if user.first_name == first_name:
                 return True
         return False
+    # display user
+    @classmethod
+    def display_user(cls):
+        '''
+        Function that displays users 
+        '''
+        return cls.user_details()
