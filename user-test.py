@@ -1,22 +1,27 @@
 import unittest
 from user import User
+from credentials import Credentials
 
 class TestUser(unittest.TestCase):
     '''
-    Test class that defines test cases for the contact class behaviours.
+    Test class that defines test cases for the user class behaviours.
     '''    
-    new_user = User("Keren","Mungai","kayren12345")
+    new_user = User("Keren","Mungai","kayren12345") # takes in user details
+    new_app = Credentials("Twitter","kay12345") # takes in appdetails from credentials class
 
     def setUp(self):
         '''
         setup method that runs before each test cases
         '''
         self.new_user = User("Keren","Mungai","kayren12345")
+        self.new_app = Credentials("Twitter","kay12345")
+
     def tearDown(self):
         '''
-        teardown method that lean up after each test case has run
+        teardown method that clean up after each test case has run
         '''
         User.user_details = []
+        Credentials.app_details = []
 
 
     # test to check whether user is initialized correctly
@@ -27,6 +32,9 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.new_user.first_name,"Keren")
         self.assertEqual(self.new_user.second_name,"Mungai")
         self.assertEqual(self.new_user.password,"kayren12345")
+
+        self.assertEqual(self.new_app.app,"Twitter")
+        self.assertEqual(self.new_app.app_password,"kay12345")
 
 
     # test to check whether our user details have been saved
