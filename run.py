@@ -11,12 +11,28 @@ def create_user(fname,sname,password):
     new_user = User(fname,sname,password)
     return new_user
 
-# saving user
+def create_app(app,app_password):
+    '''
+    Function to create new app and password
+    '''
+    new_app = Credentials(app,app_password)
+    return new_app
+
+
+# saving user and app
 def save_user(user):
     '''
     Function to save our user details
     '''
     user.save_user()
+
+
+def save_app(credentials):
+    '''
+    Function to save new app details
+    '''
+    credentials.save_app()
+
 
 # delete user
 def del_account(user):
@@ -25,12 +41,25 @@ def del_account(user):
     '''
     user.delete_account()
 
+def del_app(credentials):
+    '''
+    Function that deletes app logged
+    '''
+    credentials.delete_app()
+
 # finding a user by first name
 def find_user(first_name):
     '''
     Function that finds user by their first name and returns their first name
     '''
     return User.find_by_fname(first_name)
+
+
+def find_app(app):
+    '''
+    Function that finds an app
+    '''
+    return Credentials.find_app(app)
 
 # checking if a user exists
 def user_existance(first_name):
@@ -39,6 +68,12 @@ def user_existance(first_name):
     '''
     return User.user_exist(first_name)
 
+def app_existance(app):
+    '''
+    Function that checks if an app exists and returns a boolean
+    '''
+    return Credentials.app_exist(app)
+
 # displaying users
 def display_users():
     '''
@@ -46,21 +81,27 @@ def display_users():
     '''
     return User.display_user()
 
+def display_app():
+    '''
+    Function that displays a list of apps saved
+    '''
+    return Credentials.display_app()
+
 ## main function
 def main():
     print("Welcome to passlock, to login please enter your name and password")
 
-    user_name = input()
+    user_name = input().upper()
     password = str(input())
 
     print(f"Welcome {user_name}!")
 
     while True:
-        print("Use this short codes: VC - to view users NC - to name a new account and store its password AC - to see a list of your accounts")
+        print("Use this short codes: VC - to view users NC - to name a new account and store its password AC - to see a list of your apps and passwords EXIT to leave app")
 
         short_code = input().upper()
 
-        if short_code == 'NC'
+        if short_code == 'NC':
             print("New app:")
 
             print("App name:")
@@ -69,42 +110,31 @@ def main():
             print("App password")
             app_password = input()
 
-            
-     
+            #save_user(create_user(fname,sname,password)) # create and save a new user
+            save_app(create_app(app,app_password)) # create and save new app and password
 
-#             save_contacts(create_contact(first_name,last_name,phone_number,email_address)) # create and save new contact
-#             print('/n')
-#             print(f"New Contact {first_name} {last_name} created")
-#             print('/n')
+            print(f"New app {app} account created")
+            print(f"Password: {app_password}")
+        elif short_code == 'AC':
+            if display_app():
+                print("Here is a list of all your apps their respective passwords")
 
-#         elif short_code == 'dc':
-#             if display_contacts():
-#                 print("Here is a list of all your contacts")
-#                 print('/n')
+                for credentials in display_app():
+                    print(f"{credentials.app} - Password: {credentials.app_password}")
+                else :
+                    print("Save a list of apps with their passwords inorder to have them displayed")
+        elif short_code == 'VC':
+            '''
+            view user
+            '''
+            if display_users():
+                print("Here are your login details")
 
-#                 for contact in display_contacts():
-#                     print(f"{contact.first_name}{contact.last_name} .....{contact.phone_number}")
-                    
-#                     print('/n')
-#             else:
-#                     print('/n')
-#                     print("You don't seem to have any ontacts saved yet")
-#                     print('/n')
-#         elif short_code == 'fc':
-#                 print("Enter the number you want to search for")
-#                 search_number  = input()
-
-#                 if checking_if_contact_exists(search_number):
-#                     search_contact = find_contact(search_number)
-#                     print(f"{search_contact.first_name}{search_contact.last_name}")
-#                     print("-"*20)
-
-#                     print(f"Phone number.....{search_contact.phone_number}")
-#                     print(f"Email address....{search_contact.email}")
-#                 else :
-#                     print("That contact does not exist")
-#         elif short_code == 'ex':
-#             print("Bye....")
-#             break
-#         else :
-#             print("I really didn't get that contact.Please use shortcodes")
+                for user in display_users():
+                    print(f"{user.first_name} {user.second_name} is currently logged in. Your password is {password}")
+                else :
+                    print("Check your login details")
+        elif short_code == 'EXIT':
+            break
+        else :
+            print("Could you please use the short codes?")

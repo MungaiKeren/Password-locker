@@ -13,3 +13,42 @@ class Credentials:
         function that stores our accounts
         '''
         Credentials.app_details.append(self)
+    def delete_app(self):
+        '''
+        Function that remove app and password
+        '''
+        Credentials.app_details.remove(self)
+    
+    @classmethod
+    def find_app(cls,app):
+        '''
+        Finding app by the name
+        Args:
+            app: app name to search for
+        returns:
+            app searched for
+        '''
+        for credentials in cls.app_details:
+            if credentials.app == app:
+                return app
+    
+    @classmethod
+    def app_exist(cls,app):
+        '''
+        Method that checks if app exist
+        Args:
+            app name to check if app exist
+        Returns:
+            a boolean depending on the app checked for
+        '''
+        for credentials in cls.app_details:
+            if credentials.app == app:
+                return True
+        return False
+
+    @classmethod
+    def display_app(cls):
+        '''
+        Function that displays app
+        '''    
+        return cls.app_details()
