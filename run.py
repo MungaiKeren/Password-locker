@@ -138,3 +138,6 @@ def main():
             break
         else :
             print("Could you please use the short codes?")
+if __name__ == '__main__':
+    
+    main()
