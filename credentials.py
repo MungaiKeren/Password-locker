@@ -1,3 +1,6 @@
+import random
+import string
+
 class Credentials:
     '''
     class that generates instances of new credentials
@@ -47,8 +50,24 @@ class Credentials:
         return False
 
     @classmethod
-    def display_app(cls):
+    def gen_password(size = 8):
+        '''
+        Function to generate random password with six digits
+        '''
+        char = string.ascii_uppercase + string.ascii_lowercase
+        gen_password = ''.join(random.choice(char) for i in range(size))
+        return gen_password
+
+    @classmethod
+    def display_app(cls,app):
         '''
         Function that displays app
         '''    
         return cls.app_details()
+
+
+
+
+
+
+

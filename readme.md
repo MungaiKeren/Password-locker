@@ -24,6 +24,7 @@ For one to use the app, a user has to login using their details, user name and p
 ## Known bugs
 The app is not able to save the initial app details.
 
+
 ## Technologies used
 * Python
 

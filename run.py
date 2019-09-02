@@ -87,35 +87,65 @@ def display_app():
     '''
     return Credentials.display_app()
 
+def generate_password():
+    '''
+    Function that generates random passwords
+    '''
+    generate_password = Credentials.gen_password()
+    return generate_password
+
 ## main function
 def main():
-    print("Welcome to passlock, to login please enter your name and password")
-
+    print("Welcome to passlock, to login please enter your name")
     user_name = input().upper()
-    password = str(input())
 
+    print("Password:")
+    password = input()
+
+    
     print(f"Welcome {user_name}!")
 
     while True:
-        print("Use this short codes: VC - to view users NC - to name a new account and store its password AC - to see a list of your apps and passwords EXIT to leave app")
+        print("Use this short codes: NC - to name new account credentials VC - to view credentials DEL - to delete credentials EXIT to leave app")
 
         short_code = input().upper()
 
         if short_code == 'NC':
-            print("New app:")
-
-            print("App name:")
+            print("*"*100)
+            print("New app:\n")
             app = input()
-            
-            print("App password")
-            app_password = input()
 
-            #save_user(create_user(fname,sname,password)) # create and save a new user
+        
+            # print("App password")
+            # app_password = input()
+
+
+
+            while True:            
+                print("-"*10)
+                print("App password:\n use short codes:'mine' to use your own password\n 'generate' to use generated password\n 'ex'to exit")
+
+                password = input().lower().strip()
+
+                if password == 'mine':
+                        print("Enter your password")
+                        app_password = input().strip()
+                        break
+                elif password == 'generate':
+                        app_password = generate_password()
+                        break
+                elif password == 'x':
+                        break
+                else :
+                        print("Please enter a valid password")
+
+
             save_app(create_app(app,app_password)) # create and save new app and password
 
-            print(f"New app {app} account created")
+            print(f"New {app} account created\n")
             print(f"Password: {app_password}")
-        elif short_code == 'AC':
+
+        elif short_code == 'VC':
             if display_app():
                 print("Here is a list of all your apps their respective passwords")
 
@@ -123,18 +153,22 @@ def main():
                     print(f"{credentials.app} - Password: {credentials.app_password}")
                 else :
                     print("Save a list of apps with their passwords inorder to have them displayed")
-        elif short_code == 'VC':
-            '''
-            view user
-            '''
-            if display_users():
-                print("Here are your login details")
 
-                for user in display_users():
-                    print(f"{user.first_name} {user.second_name} is currently logged in. Your password is {password}")
-                else :
-                    print("Check your login details")
+        elif short_code == 'DEL':
+            '''
+            Delete app credentials
+            '''
+            print("Please tell me which app you want to delete")
+            app = input()
+
+            print("Confirm password")
+            app_password = input()
+            
+            
+            return credentials.delete_app()
+            
         elif short_code == 'EXIT':
+            print("You're now leaving pass-lock")
             break
         else :
             print("Could you please use the short codes?")
