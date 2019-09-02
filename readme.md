@@ -15,6 +15,12 @@ This project does tests for each method in the user and credentials classes. The
 The app continues to enable the user interact with the app as they can add apps and passwords used in their different accounts.
 For one to use the app, a user has to login using their details, user name and password, then can proceed to add accounts they have passwords for or view the passwords for previously added apps.
 
+# Set-up and installation instructions
+### You need to have the following installed
+* Python3.6
+* Pip
+* Pyperclip
+* x-clip
 ## Known bugs
 The app is not able to save the initial app details.
 
