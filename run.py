@@ -99,8 +99,27 @@ def main():
     print("Welcome to passlock, to login please enter your name")
     user_name = input().upper()
 
-    print("Password:")
-    password = input()
+    # print("Password:")
+    # password = input()
+
+
+    while True:            
+        print("-"*10)
+        print("App password:\n use short codes:'mine' to use your own password\n 'gp' to use generated password\n 'ex'to exit")
+
+        password_choice = input().lower().strip()
+
+        if password_choice == 'mine':
+                print("Enter your password")
+                password = input().strip()
+                break
+        elif password_choice == 'gp':
+                password = generate_password()
+                break
+        elif password_choice == 'x':
+                break
+        else :
+                print("Please enter a valid password")
 
     
     print(f"Welcome {user_name}!")
@@ -115,15 +134,9 @@ def main():
             print("New app:\n")
             app = input()
 
-        
-            # print("App password")
-            # app_password = input()
-
-
-
             while True:            
                 print("-"*10)
-                print("App password:\n use short codes:'mine' to use your own password\n 'generate' to use generated password\n 'ex'to exit")
+                print("App password:\n use short codes:'mine' to use your own password\n 'gp' to use generated password\n 'ex'to exit")
 
                 password = input().lower().strip()
 
@@ -131,7 +144,7 @@ def main():
                         print("Enter your password")
                         app_password = input().strip()
                         break
-                elif password == 'generate':
+                elif password == 'gp':
                         app_password = generate_password()
                         break
                 elif password == 'x':
@@ -164,8 +177,8 @@ def main():
             print("Confirm password")
             app_password = input()
             
-            
-            return credentials.delete_app()
+            delete = credentials.delete_app()
+            return delete
             
         elif short_code == 'EXIT':
             print("You're now leaving pass-lock")
@@ -173,5 +186,4 @@ def main():
         else :
             print("Could you please use the short codes?")
 if __name__ == '__main__':
-    
     main()

@@ -50,19 +50,20 @@ class Credentials:
         return False
 
     @classmethod
-    def gen_password(size = 8):
+    def gen_password(self):
         '''
         Function to generate random password with six digits
         '''
         char = string.ascii_uppercase + string.ascii_lowercase
-        gen_password = ''.join(random.choice(char) for i in range(size))
+        gen_password = ''.join(random.choice(char) for i in range(0, 9))
         return gen_password
 
     @classmethod
-    def display_app(cls,app):
+    def display_app(cls, app):
         '''
         Function that displays app
         '''    
+        
         return cls.app_details()
 
 
