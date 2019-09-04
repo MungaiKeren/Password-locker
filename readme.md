@@ -15,6 +15,15 @@ This project does tests for each method in the user and credentials classes. The
 The app continues to enable the user interact with the app as they can add apps and passwords used in their different accounts.
 For one to use the app, a user has to login using their details, user name and password, then can proceed to add accounts they have passwords for or view the passwords for previously added apps.
 
+# User stories
+The user would like to.... :
+
+* To create an account for the application or log into the application.
+* Store my existing acounts login details for various accounts that i have registered for.
+* Generate new password for an account that i haven't registered for and store it with the         account name.
+* Delete stored account login details that i do now want anymore.
+* Copy my credentials to the clipboard
+
 # Set-up and installation instructions
  ### You need to have the following installed
   * Python3.6
@@ -35,13 +44,15 @@ For one to use the app, a user has to login using their details, user name and p
     $ ./run.py
   To run test for the application $ python3 user-test.py
 # Behaviour driven development
-|Behaviour                          |Input                               |Output  |
-|---:                               |---:                                |---:    |
-|Run the application in the terminal|chmod +x run.py followed by ./run.py|App runs|
-|App asks for user name             |Enter user name|App asks for password|
-|App prompts password or use user customized|Enter password|App displays a welcome note |
-|App proceeds to list an option for user interactions| select short code| prompts generated|
-|App exits anonymously|Bugs present in code|report bug|
+| Behaviour                          | Input                               | Output  |
+| ---:                               | ---:                                | ---:    |
+| Run the application in the terminal| chmod +x run.py followed by ./run.py | App runs |
+| App asks for user name             | Enter user name | App asks for password |
+| App prompts password or use user customized| Enter password | App displays a welcome note |
+| App proceeds to list an option for user interactions| select short code | prompts generated |
+| Short code NC - create new account | app name and password | user app and password displayed |
+| Short code VC-view user accounts | - | Displays a list of accounts created and their passwords|| Short code DEL - delete accounts | account and password of app to be deleted| deletes app | 
+| App exits anonymously| Bugs present in code | report bug |
 ## Known bugs
 The app is not able to save the initial app details.
 
