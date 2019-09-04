@@ -35,11 +35,13 @@ For one to use the app, a user has to login using their details, user name and p
     $ ./run.py
   To run test for the application $ python3 user-test.py
 # Behaviour driven development
-|Behaviour|Input|Output|
-|---|---|---|---|---|
+|Behaviour                          |Input                               |Output  |
+|---:                               |---:                                |---:    |
 |Run the application in the terminal|chmod +x run.py followed by ./run.py|App runs|
-|   |   |   |   |   |
-|   |   |   |   |   |
+|App asks for user name             |Enter user name|App asks for password|
+|App prompts password or use user customized|Enter password|App displays a welcome note |
+|App proceeds to list an option for user interactions| select short code| prompts generated|
+|App exits anonymously|Bugs present in code|report bug|
 ## Known bugs
 The app is not able to save the initial app details.
 
